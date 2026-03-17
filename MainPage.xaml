@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="numero8.MainPage"
+             Title="numeros primos"
+             BackgroundColor="DarkSlateGrey">
+
+    <Grid RowDefinitions="Auto ,Auto, *" Padding="20">
+
+        <Label Grid.Row="0"
+               Text="LIsta de Numeros (1-100)"
+               FontSize="30"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="BlueViolet"
+               Margin="0,0,0,15"/>
+
+        <VerticalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">
+
+            <Entry x:Name="LimiteEntry"
+                   Placeholder="ej 50"
+                   WidthRequest="120"
+                   TextColor="White"
+                   PlaceholderColor="BlueViolet"/>
+
+            <Button Text="GENERAR LISTA"
+                    Clicked="OnGenerarClicked"
+                    BackgroundColor="BlueViolet"
+                    FontAttributes="Bold"/>
+
+        </VerticalStackLayout>
+
+
+        <ListView Grid.Row="2"
+                  x:Name="NumerosListView"
+                  SelectionMode="None"
+                  SeparatorVisibility="None"
+                  HasUnevenRows="True">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <Border Stroke="Blue"
+                                StrokeThickness="2"
+                                Margin="5,5"
+                                Padding="15"
+                                BackgroundColor="Gray">
+
+
+                            <Label Text="{Binding .}"
+                                   FontSize="18"
+                                   HorizontalOptions="Center"
+                                   TextColor="Black"/>
+
+                        </Border>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+    </Grid>
+
+
+</ContentPage>
